@@ -32,8 +32,8 @@ export default function Viewstudent() {
           <td>{student.id}</td>
           <td>{student.name}</td>
           <td>{student.address}</td>
-          <td><Button variant="primary">Edit</Button>{' '}
-          <Button variant="danger">Delete</Button>{' '}</td>
+          <td><Link to={"/updateStudent/student.id"+student.id}/><Button variant="primary">Edit</Button>{' '}
+          <Button variant="danger" onClick={deleteStudent.bind(this,student.id)}>Delete</Button>{' '}</td>
         </tr>)}
       </tbody>
     </Table>
