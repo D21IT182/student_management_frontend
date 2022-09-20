@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Viewstudent() {
   const [students, setStudents] = useState([]);
@@ -40,8 +42,8 @@ export default function Viewstudent() {
           <td>{student.id}</td>
           <td>{student.name}</td>
           <td>{student.address}</td>
-          <td><Link to={"/updateStudent/student.id"+student.id}/><Button variant="primary">Edit</Button>{' '}
-          <Button variant="danger" onClick={deleteStudent.bind(this,student.id)}>Delete</Button>{' '}</td>
+          <td><Link to={"/updateStudent/"+student.id}><Button variant="primary"><FontAwesomeIcon icon={faEdit}>Edit</FontAwesomeIcon></Button>{' '}</Link>
+          <Button variant="danger" onClick={deleteStudent.bind(this,student.id)}><FontAwesomeIcon icon={faTrash}>Delete</FontAwesomeIcon></Button>{' '}</td>
         </tr>)}
       </tbody>
     </Table>
