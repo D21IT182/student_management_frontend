@@ -25,7 +25,7 @@ export default function Student(){
       })
     .catch(error => alert(error));
     }
-  })
+  },[])
   
   const student={
     id:id,
