@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 export default function Viewstudent() {
   const [students, setStudents] = useState([]);
@@ -14,6 +15,13 @@ export default function Viewstudent() {
     .catch(error=>alert(error));
     
   })
+  
+  const deleteStudent = (id, event) => {
+    event.preventDefault();
+    axios.delete('http://localhost:8080/student/'+ id)
+    .then(response=> alert(response.data))
+    .catch(error=> alert(error));
+  }
   return (
     <Card  className='my-3'>
         <Card.Header>Student Management System</Card.Header>
