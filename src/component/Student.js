@@ -28,9 +28,16 @@ export default function Student(){
 
   let addStudent = (event) =>{
     event.preventDefault();
+    if(studentId===null){
     axios.post('http://localhost:8080/student',student)
     .then(response => {alert(response.data)})
     .catch(error => alert(error));
+    }else
+    {
+      axios.put('http://localhost:8080/student/'+studentId,student)
+      .then(response => {alert(response.data)})
+      .catch(error => alert(error));
+    }
     setId('');
     setName('');
     setAddress('');
