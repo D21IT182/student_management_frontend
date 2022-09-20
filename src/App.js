@@ -15,7 +15,7 @@ function App() {
       
       <Routes>
       <Route path="/addStudent" element={<Student/>}/>
-      <Route path="/updateStudent/:id" element={<Student/>}/>
+      <Route path="/updateStudent/:studentId" element={<Student/>}/>
       <Route path="/viewStudent" element={<Viewstudent/>}/>
       </Routes>
       
