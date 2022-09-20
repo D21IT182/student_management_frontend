@@ -3,13 +3,30 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 export default function Student(){
 
   const[id,setId] = useState();
   const[name,setName] = useState();
-  const[address,setAddress] = useState(); 
+  const[address,setAddress] = useState();
+  const{studentId} = useParams();
+  const navigate = useNavigate();
+  
+  useEffect(()=>{
+    if(studentId !== null){
+      axios.get('http://localhost:8080/student/'+studentId)
+      .then(response => {
+        setId(response.data.id);
+        setName(response.data.name);
+        setAddress(response.data.address);
+      })
+    .catch(error => alert(error));
+    }
+  })
+  
   const student={
     id:id,
     name: name,
